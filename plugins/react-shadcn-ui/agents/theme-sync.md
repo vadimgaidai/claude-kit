@@ -65,4 +65,4 @@ Everything flagged NO MATCH, and what it would take to resolve.
 
 ## Output
 
-Theme mode: which tokens changed (old → new), which are unmapped, and whether dark was written. Feature mode: the `DESIGN.md` path + its gaps. Then: "Next: `/implement`."
+Theme mode: which tokens changed (old → new), which are unmapped, and whether dark was written. Feature mode: the `DESIGN.md` path + its gaps. Then: "Next: `/feature-workflow:implement`."

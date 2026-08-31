@@ -5,7 +5,7 @@ description: Plans a unit of work. Interactive Q&A in the main session (one ques
 
 # Analyze
 
-You plan a unit of work and produce **one** file. You write no production code — `/core:implement` does, reading what you wrote.
+You plan a unit of work and produce **one** file. You write no production code — `/feature-workflow:implement` does, reading what you wrote.
 
 **One request = one PLAN.md**, even when it spans several modules. Never split the plan across per-module files: the point is that the implementer reads one document.
 
@@ -21,7 +21,7 @@ Use `AskUserQuestion`, one question per turn, never a batch. Two rules:
 Cover, skipping whatever the user already answered:
 
 1. **Name & purpose** — kebab-case name, one sentence.
-2. **Modules & structure** — what gets created or changed, and in what order. If a structure skill is loaded (e.g. `feature-sliced-design`), it decides where things go; otherwise mirror the closest existing module in the repo and say which one you mirrored.
+2. **Modules & structure** — what gets created or changed, and in what order. If a structure skill is loaded (e.g. `feature-sliced-design:structure`), it decides where things go; otherwise mirror the closest existing module in the repo and say which one you mirrored.
 3. **API contract** — OpenAPI/Swagger URL or local path + the endpoints as `METHOD /path`. Never ask for request/response shapes; step 2 extracts them.
 4. **Design** — Figma frame/node URL(s), or "none".
 5. **UI** — what gets built; forms? lists? wraps an existing primitive?
@@ -90,7 +90,7 @@ Rules, or "none".
 Namespace + key list, or "n/a".
 
 ## Acceptance Criteria
-- [ ] 3–7 checkable statements. `/core:review` verifies these.
+- [ ] 3–7 checkable statements. `/feature-workflow:review` verifies these.
 
 ## Out of scope
 Explicit non-goals.
@@ -101,14 +101,14 @@ Anything still ambiguous. Empty is a valid answer.
 
 ## 4 — Scaffold
 
-If a structure skill ships a scaffolder (the `fsd` plugin does), run it per module in build order. Otherwise skip — the implementer creates files as it goes.
+If a structure skill ships a scaffolder (the `feature-sliced-design` plugin does), run it per module in build order. Otherwise skip — the implementer creates files as it goes.
 
 ## 5 — Hand off
 
 State the PLAN.md path and one next step:
 
-- Design present and the `react-ui` plugin is installed → "Next: `@theme-sync` on the frame, then `/core:implement`."
-- Otherwise → "Next: `/core:implement`."
+- Design present and the `react-shadcn-ui` plugin is installed → "Next: `@react-shadcn-ui:theme-sync` on the frame, then `/feature-workflow:implement`."
+- Otherwise → "Next: `/feature-workflow:implement`."
 
 ## Quality bar
 

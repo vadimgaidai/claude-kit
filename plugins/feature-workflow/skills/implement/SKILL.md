@@ -11,7 +11,7 @@ You implement a whole unit of work in one pass: every layer of every module in t
 
 ## Inputs
 
-- `.planning/[name]/PLAN.md` — the whole brief. Missing? Ask the user to run `/core:analyze`, or take a direct brief for a small change.
+- `.planning/[name]/PLAN.md` — the whole brief. Missing? Ask the user to run `/feature-workflow:analyze`, or take a direct brief for a small change.
 - `.planning/[name]/contract.md` — **authoritative for every request/response shape.** Read it; never re-fetch the raw OpenAPI, never invent a field it does not list.
 - `.planning/[name]/DESIGN.md` when the plan names a design. A value flagged "no match" is a real gap: surface it, don't invent one.
 
@@ -20,7 +20,7 @@ You implement a whole unit of work in one pass: every layer of every module in t
 In this order, cheapest first:
 
 1. The project's `CLAUDE.md` and `.claude/rules/` — project facts and machine-enforced rules.
-2. Any structure or library skill that applies (`feature-sliced-design`, `react-hook-form-zod`, `shadcn-ui`, `tanstack-query`…). Load the one you need, not all of them.
+2. Any structure or library skill that applies (`structure`, `react-hook-form-zod`, `shadcn-ui`, `tanstack-query`…). Load the one you need, not all of them.
 3. **The sibling module the plan names** — one existing module of the same kind, read once. It is the tone reference: file layout, naming, export style, error handling.
 
 Read the one thing that matches what you are about to write. Never read a whole conventions library up front.
@@ -51,4 +51,4 @@ Run the project's typecheck. Do not run a full build or lint unless the project 
 
 ## Output
 
-Files created/edited, anything newly required (a package to install, a UI primitive to add), and anything in the plan you did **not** build, with the reason. Then: "Next: `/core:review`."
+Files created/edited, anything newly required (a package to install, a UI primitive to add), and anything in the plan you did **not** build, with the reason. Then: "Next: `/feature-workflow:review`."

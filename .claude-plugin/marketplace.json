@@ -8,18 +8,18 @@
   "description": "A plan/implement/review workflow for TypeScript projects, plus optional React-UI and Feature-Sliced Design layers.",
   "plugins": [
     {
-      "name": "core",
+      "name": "feature-workflow",
       "displayName": "Core workflow",
-      "source": "./plugins/core",
+      "source": "./plugins/feature-workflow",
       "description": "Plan a unit of work into one PLAN.md, implement it in one pass, review the diff. Slices OpenAPI contracts so shapes are never guessed. Stack-agnostic \u2014 works in any TypeScript project.",
       "category": "workflow",
       "keywords": ["planning", "implementation", "code-review", "openapi"],
       "version": "0.1.0"
     },
     {
-      "name": "react-ui",
+      "name": "react-shadcn-ui",
       "displayName": "React UI",
-      "source": "./plugins/react-ui",
+      "source": "./plugins/react-shadcn-ui",
       "description": "shadcn/ui + Tailwind + React Hook Form/Zod conventions, and a Figma-to-token theme sync agent. Add to any React project that uses shadcn.",
       "category": "frontend",
       "keywords": [
@@ -33,9 +33,9 @@
       "version": "0.1.0"
     },
     {
-      "name": "fsd",
+      "name": "feature-sliced-design",
       "displayName": "Feature-Sliced Design",
-      "source": "./plugins/fsd",
+      "source": "./plugins/feature-sliced-design",
       "description": "Feature-Sliced Design structure: layers, module anatomy, import direction, a deterministic scaffolder, and hooks that block misplaced files and naming violations.",
       "category": "architecture",
       "keywords": ["feature-sliced-design", "fsd", "architecture"],

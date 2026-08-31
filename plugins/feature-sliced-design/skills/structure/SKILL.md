@@ -1,5 +1,5 @@
 ---
-name: feature-sliced-design
+name: structure
 description: Feature-Sliced Design rules — layers, import direction, module anatomy, the model split, and a deterministic module scaffolder. Use when creating a module, deciding which layer code belongs to, or resolving an import-boundary question.
 ---
 
@@ -57,7 +57,7 @@ Files and folders are `kebab-case`. Suffixes: `.api.ts`, `.queries.ts`, `.mutati
 Deterministic, not model-generated:
 
 ```bash
-bash "${CLAUDE_PLUGIN_ROOT}"/skills/feature-sliced-design/scripts/scaffold.sh <layer>/<name> [relative-file ...]
+bash "${CLAUDE_PLUGIN_ROOT}"/skills/structure/scripts/scaffold.sh <layer>/<name> [relative-file ...]
 ```
 
 Omit the file list for the layer's default skeleton. The script validates kebab-case and refuses to touch an existing module — if it refuses, the module exists: extend it instead.

@@ -1,7 +1,9 @@
 {
-  "name": "fsd",
+  "name": "feature-sliced-design",
   "description": "Feature-Sliced Design structure, scaffolder and boundary-enforcing hooks.",
   "version": "0.1.0",
-  "author": { "name": "Vadym Haidai" },
+  "author": {
+    "name": "Vadym Haidai"
+  },
   "license": "MIT"
 }
