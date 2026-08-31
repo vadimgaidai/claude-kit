@@ -1,0 +1,54 @@
+{
+  "$schema": "https://code.claude.com/schemas/marketplace.json",
+  "name": "vadimgaidai",
+  "owner": {
+    "name": "Vadim Gaidai",
+    "url": "https://github.com/vadimgaidai"
+  },
+  "description": "A plan/implement/review workflow for TypeScript projects, plus optional React-UI and Feature-Sliced Design layers.",
+  "plugins": [
+    {
+      "name": "core",
+      "displayName": "Core workflow",
+      "source": "./plugins/core",
+      "description": "Plan a unit of work into one PLAN.md, implement it in one pass, review the diff. Slices OpenAPI contracts so shapes are never guessed. Stack-agnostic \u2014 works in any TypeScript project.",
+      "category": "workflow",
+      "keywords": [
+        "planning",
+        "implementation",
+        "code-review",
+        "openapi"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "name": "react-ui",
+      "displayName": "React UI",
+      "source": "./plugins/react-ui",
+      "description": "shadcn/ui + Tailwind + React Hook Form/Zod conventions, and a Figma-to-token theme sync agent. Add to any React project that uses shadcn.",
+      "category": "frontend",
+      "keywords": [
+        "react",
+        "shadcn",
+        "tailwind",
+        "react-hook-form",
+        "zod",
+        "figma"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "name": "fsd",
+      "displayName": "Feature-Sliced Design",
+      "source": "./plugins/fsd",
+      "description": "Feature-Sliced Design structure: layers, module anatomy, import direction, a deterministic scaffolder, and hooks that block import-direction and naming violations.",
+      "category": "architecture",
+      "keywords": [
+        "feature-sliced-design",
+        "fsd",
+        "architecture"
+      ],
+      "version": "0.1.0"
+    }
+  ]
+}
