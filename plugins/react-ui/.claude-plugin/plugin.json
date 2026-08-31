@@ -2,6 +2,6 @@
   "name": "react-ui",
   "description": "shadcn/ui + Tailwind + RHF/Zod conventions and a Figma-to-token theme sync agent.",
   "version": "0.1.0",
-  "author": { "name": "Vadim Gaidai" },
+  "author": { "name": "Vadym Haidai" },
   "license": "MIT"
 }

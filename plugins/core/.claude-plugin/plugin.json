@@ -2,6 +2,6 @@
   "name": "core",
   "description": "Plan a unit of work into one PLAN.md, implement it in one pass, review the diff. Stack-agnostic.",
   "version": "0.1.0",
-  "author": { "name": "Vadim Gaidai" },
+  "author": { "name": "Vadym Haidai" },
   "license": "MIT"
 }
