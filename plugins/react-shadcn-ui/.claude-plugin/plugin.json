@@ -1,7 +1,7 @@
 {
   "name": "react-shadcn-ui",
   "description": "React 19, shadcn/ui + Tailwind, TanStack Query and RHF/Zod conventions, plus a Figma-to-token theme sync agent.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "Vadym Haidai"
   },

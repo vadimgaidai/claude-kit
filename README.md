@@ -133,13 +133,18 @@ npx skills@latest add shadcn/ui -s shadcn -y
 
 ## Development
 
+Iterate against the working tree, without installing:
+
 ```bash
-claude --plugin-dir ./plugins/feature-workflow \
-       --plugin-dir ./plugins/react-shadcn-ui \
-       --plugin-dir ./plugins/feature-sliced-design
-claude plugin validate ./plugins/feature-workflow
-/reload-plugins
+claude --plugin-dir ./plugins/react-shadcn-ui
+/reload-plugins        # re-read the directories after an edit
 ```
+
+**Bump the version or the change never ships.** `claude plugin update` compares `version` against the installed copy — unchanged, it answers "already at the latest version" and copies nothing, ignoring commits entirely. Bump it in both `plugins/<name>/.claude-plugin/plugin.json` and the marketplace entry; `claude plugin tag` refuses a release where the two disagree.
+
+So a push alone changes nothing for installed copies: the marketplace clone updates, the plugin cache doesn't. `/reload-plugins` answering `0 skills` after you pushed a new skill means the cache never moved — check the version, not the code.
+
+`claude plugin validate` reads manifests only, never `SKILL.md` — nothing catches a dead `references/*.md` link or bad frontmatter until the skill needs it. `claude plugin eval` (cases under `evals/`) is the real check; `claude plugin details <plugin>@<owner>` confirms what loaded and what it costs per session.
 
 ## License
 

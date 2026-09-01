@@ -14,7 +14,7 @@
       "description": "Plan a unit of work into one PLAN.md, implement it in one pass, review the diff. Slices OpenAPI contracts so shapes are never guessed. Stack-agnostic \u2014 works in any TypeScript project.",
       "category": "workflow",
       "keywords": ["planning", "implementation", "code-review", "openapi"],
-      "version": "0.1.0"
+      "version": "0.2.0"
     },
     {
       "name": "react-shadcn-ui",
@@ -31,7 +31,7 @@
         "zod",
         "figma"
       ],
-      "version": "0.1.0"
+      "version": "0.2.0"
     },
     {
       "name": "feature-sliced-design",
@@ -40,7 +40,7 @@
       "description": "Feature-Sliced Design structure: layers, module anatomy, import direction, a deterministic scaffolder, and hooks that block misplaced files and naming violations.",
       "category": "architecture",
       "keywords": ["feature-sliced-design", "fsd", "architecture"],
-      "version": "0.1.0"
+      "version": "0.1.1"
     }
   ]
 }
