@@ -35,4 +35,5 @@ The reference files use placeholders — `[entity]` kebab-case, `[Entity]` Pasca
 - **Never let `z.input` diverge from `z.output`** — no `z.preprocess` / `.transform` in a form schema. It desyncs `zodResolver` from `useForm`/`Control` and the file stops compiling. A form schema round-trips the form's own values; normalize "empty but present" values in `onSubmit` when building the payload, not in the schema.
 - Never introduce a schema pattern with no precedent in [references/schemas.md](references/schemas.md) or in the repo.
 - Never duplicate an inferred type as a hand-written interface — `z.infer` is the source of truth.
+- **Never put a React 19 form action on an RHF form.** `<form action={...}>`/`useActionState` and `handleSubmit` are two handlers for one submit event — the action wins and the resolver never validates. `useFormStatus` is likewise redundant next to `formState.isSubmitting`. This holds for one-field forms too; there is no size below which a second form pattern is worth it.
 

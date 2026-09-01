@@ -20,7 +20,7 @@ You implement a whole unit of work in one pass: every layer of every module in t
 In this order, cheapest first:
 
 1. The project's `CLAUDE.md` and `.claude/rules/` — project facts and machine-enforced rules.
-2. Any structure or library skill that applies (`structure`, `react-hook-form-zod`, `shadcn-ui`, `tanstack-query`…). Load the one you need, not all of them.
+2. Any structure or library skill that applies — `structure` for placement, `tanstack-query` for the data layer, `react-hook-form-zod` for forms, `shadcn-ui` and `react` for UI. Load the one that matches the layer you are on, not all of them.
 3. **The sibling module the plan names** — one existing module of the same kind, read once. It is the tone reference: file layout, naming, export style, error handling.
 
 Read the one thing that matches what you are about to write. Never read a whole conventions library up front.

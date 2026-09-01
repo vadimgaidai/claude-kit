@@ -41,7 +41,7 @@ All of this happens in your session, so you can interrupt, correct and redirect 
 ```bash
 /plugin marketplace add vadimgaidai/claude-kit
 /plugin install feature-workflow@vadimgaidai       # the workflow above
-/plugin install react-shadcn-ui@vadimgaidai        # shadcn/ui, Tailwind, forms
+/plugin install react-shadcn-ui@vadimgaidai        # React, shadcn/ui, Tailwind, TanStack Query, forms
 /plugin install feature-sliced-design@vadimgaidai  # FSD structure
 ```
 
@@ -57,7 +57,7 @@ Commands are prefixed with the plugin name, so `/feature-workflow:analyze` won't
 |---|---|
 | `/feature-workflow:analyze` | Questions, then `PLAN.md` and a trimmed API contract |
 | `/feature-workflow:implement` | Builds everything in the plan |
-| `/feature-workflow:review` | Checks the diff against the plan and the contract |
+| `/feature-workflow:review` | Checks the diff against the plan and the contract; takes `correctness` / `contract` / `consistency` / `perf` to narrow the report |
 | `/feature-workflow:api-contract` | Trims a Swagger or OpenAPI spec to the endpoints you name, on its own |
 | `@feature-workflow:bug-fixer` | Reproduces and fixes one bug |
 | a hook | Runs Prettier on every file written |
@@ -66,7 +66,8 @@ Commands are prefixed with the plugin name, so `/feature-workflow:analyze` won't
 
 | Skill | What it covers |
 |---|---|
-| `react` | React 19 and the Compiler: what effects are for, when memoization still helps, `lazy` and Suspense |
+| `react` | React 19 and the Compiler: where state belongs, what effects are for, when memoization still helps, refs and context, `lazy`, Suspense and error boundaries, Actions and `use` |
+| `tanstack-query` | What the shared `QueryClient` already decided, what belongs in a query key, `enabled` / `select` / `useQueries` / `keepPreviousData`, and how a mutation touches the cache |
 | `shadcn-ui` | Semantic tokens instead of raw colors, extending primitives through `ComponentProps`, spacing and icons that survive dark mode |
 | `react-hook-form-zod` | Where schemas live, the `z.input === z.output` rule, the usual resolver errors |
 | `@react-shadcn-ui:theme-sync` | Figma variables to shadcn tokens, light and dark |
@@ -83,6 +84,20 @@ The skills in `react-shadcn-ui` and `feature-sliced-design` load themselves when
 
 Import direction is described by the `structure` skill but not enforced by a hook, so an entity importing from a feature gets caught in review rather than at write time.
 
+## Keeping the context small
+
+The three commands are built to run in **separate sessions**. The files between them are the handoff — that is the whole reason the plan and the contract are written to disk instead of being carried in the conversation.
+
+| Practice | Why |
+|---|---|
+| Start `implement` in a fresh session, not the one that planned | The plan is the handoff. A session that just spent twenty questions deciding what to build carries all of that reasoning into the build, where only the plan matters. |
+| Review in a fresh session too | `review` reads the diff. The session that wrote the code is its worst judge — it already believes the code matches the plan, because it believed that while writing it. |
+| Point at the plan by path; don't paste it | `implement` opens `.planning/[name]/PLAN.md` itself and reads the parts it needs. Pasting it spends the tokens twice and pins the whole thing in context. |
+| One `.planning/[name]/` folder per unit of work | `analyze` writes one plan covering every module of the request. Scattering a request across per-module folders leaves no single authoritative brief, and `implement` has nothing to build from. |
+| Let a skill load itself | Skills are chosen from their description and loaded on demand. Pasting a convention into the prompt spends exactly the tokens that mechanism exists to save. |
+| Keep `bug-fixer` and `theme-sync` as subagents | Both read far more than they report — a reproduction, a Figma file. The finding comes back to you; the reading stays with them. |
+| One concern per session | A bug fix folded into a feature build produces a diff where nothing says which change answers which intent — and `review` can only judge it as one thing. |
+
 ## Requirements
 
 The hooks shell out to a couple of things that are usually already there: `jq` for the three `feature-sliced-design` validators, and `node` for the Prettier hook. Without `jq` the validators exit quietly instead of blocking a bad write, so the checks look like they're running when they aren't.
@@ -96,11 +111,11 @@ Put the marketplace in the repo's `.claude/settings.json` so everyone who clones
   "extraKnownMarketplaces": {
     "vadimgaidai": { "source": { "source": "github", "repo": "vadimgaidai/claude-kit" } }
   },
-  "enabledPlugins": [
-    "feature-workflow@vadimgaidai",
-    "react-shadcn-ui@vadimgaidai",
-    "feature-sliced-design@vadimgaidai"
-  ]
+  "enabledPlugins": {
+    "feature-workflow@vadimgaidai": true,
+    "react-shadcn-ui@vadimgaidai": true,
+    "feature-sliced-design@vadimgaidai": true
+  }
 }
 ```
 

@@ -20,12 +20,13 @@
       "name": "react-shadcn-ui",
       "displayName": "React UI",
       "source": "./plugins/react-shadcn-ui",
-      "description": "shadcn/ui + Tailwind + React Hook Form/Zod conventions, and a Figma-to-token theme sync agent. Add to any React project that uses shadcn.",
+      "description": "React 19, shadcn/ui + Tailwind, TanStack Query and React Hook Form/Zod conventions, and a Figma-to-token theme sync agent. Add to any React project that uses shadcn.",
       "category": "frontend",
       "keywords": [
         "react",
         "shadcn",
         "tailwind",
+        "tanstack-query",
         "react-hook-form",
         "zod",
         "figma"
