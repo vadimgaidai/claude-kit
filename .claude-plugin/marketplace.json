@@ -9,6 +9,7 @@
   "plugins": [
     {
       "name": "feature-workflow",
+      "author": { "name": "Vadym Haidai", "url": "https://github.com/vadimgaidai" },
       "displayName": "Feature Workflow",
       "source": "./plugins/feature-workflow",
       "description": "Plan a feature into one PLAN.md, build it in one pass, review the diff against the plan and the API contract. Slices your OpenAPI spec down to the endpoints the feature uses, so request and response shapes are never guessed. Stack-agnostic — works in any TypeScript project.",
@@ -18,6 +19,7 @@
     },
     {
       "name": "react-shadcn-ui",
+      "author": { "name": "Vadym Haidai", "url": "https://github.com/vadimgaidai" },
       "displayName": "React Conventions",
       "source": "./plugins/react-shadcn-ui",
       "description": "The rules Claude should already know before it writes React: where state lives, what belongs in a query key, where a Zod schema goes, which token replaces a raw color. Four skills that load only when they apply, plus an agent that maps Figma variables onto your shadcn tokens.",
@@ -35,6 +37,7 @@
     },
     {
       "name": "feature-sliced-design",
+      "author": { "name": "Vadym Haidai", "url": "https://github.com/vadimgaidai" },
       "displayName": "Feature-Sliced Design",
       "source": "./plugins/feature-sliced-design",
       "description": "Where a module goes and what is inside it: layers, import direction, module anatomy, a deterministic scaffolder, and hooks that reject a misplaced file or a wrong filename before it is written.",

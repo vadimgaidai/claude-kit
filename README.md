@@ -148,7 +148,7 @@ claude --plugin-dir ./plugins/react-shadcn-ui
 
 So a push alone changes nothing for installed copies: the marketplace clone updates, the plugin cache doesn't. `/reload-plugins` answering `0 skills` after you pushed a new skill means the cache never moved — check the version, not the code.
 
-`claude plugin validate` reads manifests only, never `SKILL.md` — nothing catches a dead `references/*.md` link or bad frontmatter until the skill needs it. `claude plugin eval` (cases under `evals/`) is the real check; `claude plugin details <plugin>@<owner>` confirms what loaded and what it costs per session.
+`claude plugin validate` checks what you point it at. Given a plugin directory it reads the manifest only and never opens `SKILL.md`; given `plugins/<name>/skills` it reads every one and warns on frontmatter — a missing `description`, for instance. Neither invocation catches a dead `references/*.md` link or a `name` that doesn't match its directory, so those stay silent until the skill needs them. `claude plugin eval` (cases under `evals/`) is the real check; `claude plugin details <plugin>@<owner>` confirms what loaded and what it costs per session.
 
 ## License
 
