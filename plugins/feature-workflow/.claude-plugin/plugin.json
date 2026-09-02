@@ -1,7 +1,7 @@
 {
   "name": "feature-workflow",
-  "description": "Plan a unit of work into one PLAN.md, implement it in one pass, review the diff. Stack-agnostic.",
-  "version": "0.2.0",
+  "description": "Plan a feature into one PLAN.md, build it in one pass, review the diff against the plan and the API contract. Stack-agnostic.",
+  "version": "0.2.1",
   "author": {
     "name": "Vadym Haidai"
   },

@@ -5,22 +5,22 @@
     "name": "Vadym Haidai",
     "url": "https://github.com/vadimgaidai"
   },
-  "description": "A plan/implement/review workflow for TypeScript projects, plus optional React-UI and Feature-Sliced Design layers.",
+  "description": "React Feature Kit — plan a feature into one file, build it in one pass, review the diff, with React 19, shadcn/ui and Feature-Sliced Design conventions.",
   "plugins": [
     {
       "name": "feature-workflow",
-      "displayName": "Core workflow",
+      "displayName": "Feature Workflow",
       "source": "./plugins/feature-workflow",
-      "description": "Plan a unit of work into one PLAN.md, implement it in one pass, review the diff. Slices OpenAPI contracts so shapes are never guessed. Stack-agnostic \u2014 works in any TypeScript project.",
+      "description": "Plan a feature into one PLAN.md, build it in one pass, review the diff against the plan and the API contract. Slices your OpenAPI spec down to the endpoints the feature uses, so request and response shapes are never guessed. Stack-agnostic — works in any TypeScript project.",
       "category": "workflow",
       "keywords": ["planning", "implementation", "code-review", "openapi"],
-      "version": "0.2.0"
+      "version": "0.2.1"
     },
     {
       "name": "react-shadcn-ui",
-      "displayName": "React UI",
+      "displayName": "React Conventions",
       "source": "./plugins/react-shadcn-ui",
-      "description": "React 19, shadcn/ui + Tailwind, TanStack Query and React Hook Form/Zod conventions, and a Figma-to-token theme sync agent. Add to any React project that uses shadcn.",
+      "description": "The rules Claude should already know before it writes React: where state lives, what belongs in a query key, where a Zod schema goes, which token replaces a raw color. Four skills that load only when they apply, plus an agent that maps Figma variables onto your shadcn tokens.",
       "category": "frontend",
       "keywords": [
         "react",
@@ -31,16 +31,16 @@
         "zod",
         "figma"
       ],
-      "version": "0.2.0"
+      "version": "0.2.1"
     },
     {
       "name": "feature-sliced-design",
       "displayName": "Feature-Sliced Design",
       "source": "./plugins/feature-sliced-design",
-      "description": "Feature-Sliced Design structure: layers, module anatomy, import direction, a deterministic scaffolder, and hooks that block misplaced files and naming violations.",
+      "description": "Where a module goes and what is inside it: layers, import direction, module anatomy, a deterministic scaffolder, and hooks that reject a misplaced file or a wrong filename before it is written.",
       "category": "architecture",
       "keywords": ["feature-sliced-design", "fsd", "architecture"],
-      "version": "0.1.1"
+      "version": "0.1.2"
     }
   ]
 }

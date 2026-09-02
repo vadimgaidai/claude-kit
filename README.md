@@ -1,6 +1,10 @@
-# claude-kit
+# React Feature Kit
 
-Plugins for [Claude Code](https://claude.com/claude-code). They add slash commands that turn a described feature into finished code: one command plans it, one writes it, one reviews the result.
+**Plan a feature into one file, build it in one pass, review the diff against it.** Three plugins for [Claude Code](https://claude.com/claude-code): a stack-agnostic plan/build/review workflow, the React 19 and shadcn/ui conventions Claude should already know, and Feature-Sliced Design structure with hooks that catch a misplaced file before it is written.
+
+The workflow deploys four skills and one agent: `analyze` interviews you one question at a time and writes a single plan plus a trimmed API contract; `implement` builds that plan in order and runs your typecheck; `review` reads the diff back against the acceptance criteria; `api-contract` slices an OpenAPI spec on its own; and the `bug-fixer` agent reproduces and fixes one bug without leaving the reading in your context.
+
+**How to use:** run `/feature-workflow:analyze` followed by what you want to build — for example `/feature-workflow:analyze add comments to articles`. Read the plan it writes, fix what is wrong, then run `/feature-workflow:implement` in a fresh session and `/feature-workflow:review` in another.
 
 ## What it does
 
@@ -39,7 +43,7 @@ All of this happens in your session, so you can interrupt, correct and redirect 
 ## Install
 
 ```bash
-/plugin marketplace add vadimgaidai/claude-kit
+/plugin marketplace add vadimgaidai/react-feature-kit
 /plugin install feature-workflow@vadimgaidai       # the workflow above
 /plugin install react-shadcn-ui@vadimgaidai        # React, shadcn/ui, Tailwind, TanStack Query, forms
 /plugin install feature-sliced-design@vadimgaidai  # FSD structure
@@ -109,7 +113,7 @@ Put the marketplace in the repo's `.claude/settings.json` so everyone who clones
 ```json
 {
   "extraKnownMarketplaces": {
-    "vadimgaidai": { "source": { "source": "github", "repo": "vadimgaidai/claude-kit" } }
+    "vadimgaidai": { "source": { "source": "github", "repo": "vadimgaidai/react-feature-kit" } }
   },
   "enabledPlugins": {
     "feature-workflow@vadimgaidai": true,

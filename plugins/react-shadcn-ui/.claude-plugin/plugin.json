@@ -1,7 +1,7 @@
 {
   "name": "react-shadcn-ui",
-  "description": "React 19, shadcn/ui + Tailwind, TanStack Query and RHF/Zod conventions, plus a Figma-to-token theme sync agent.",
-  "version": "0.2.0",
+  "description": "The rules Claude should already know before it writes React: where state lives, what belongs in a query key, where a Zod schema goes, which token replaces a raw color. Plus Figma variables to shadcn tokens.",
+  "version": "0.2.1",
   "author": {
     "name": "Vadym Haidai"
   },

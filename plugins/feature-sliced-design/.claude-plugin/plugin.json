@@ -1,7 +1,7 @@
 {
   "name": "feature-sliced-design",
-  "description": "Feature-Sliced Design structure, scaffolder and boundary-enforcing hooks.",
-  "version": "0.1.1",
+  "description": "Where a module goes and what is inside it: layers, import direction, a scaffolder, and hooks that reject a misplaced file before it is written.",
+  "version": "0.1.2",
   "author": {
     "name": "Vadym Haidai"
   },
